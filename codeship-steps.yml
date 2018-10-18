@@ -1,0 +1,13 @@
+name: "install"
+  service: "app"
+  command: "yarn"
+- type: parallel
+  name: "test and lint"
+  steps:
+    - service: app
+      command: "yarn test"
+    - service: app
+      command: "yarn lint"
+name: "build"
+  service: "app"
+  command: "yarn build"
